@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: agentic-news-impact-api
+    runtime: docker
+    plan: free
+    region: frankfurt
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: ALLOWED_ORIGINS
+        value: "*"
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: MOVE_THRESHOLD
+        value: "2.0"
+      - key: DEFAULT_DAYS
+        value: "30"
