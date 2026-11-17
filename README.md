@@ -11,9 +11,31 @@ Built on the Model Context Protocol · LangGraph · FastAPI · Next.js
 [![Next.js](https://img.shields.io/badge/Next.js-16-000000?logo=next.js)](frontend/package.json)
 [![Tests](https://img.shields.io/badge/tests-26%20passing-2dd4bf)](backend/tests)
 
-<img src="docs/screenshots/03-report.png" alt="The agent reporting a 5.31% Apple move with the headlines published before it" width="900">
+<img src="docs/screenshots/live-02-report.png" alt="The agent reporting a 5.31% Apple move with the headlines published before it" width="900">
 
 </div>
+
+---
+
+## Live
+
+| | |
+|---|---|
+| **App** | https://agentic-news-impact.vercel.app |
+| **API** | https://agentic-news-impact-api.onrender.com |
+| **Health** | https://agentic-news-impact-api.onrender.com/health |
+| **MCP tools** | https://agentic-news-impact-api.onrender.com/api/tools |
+
+Open the app, leave `AAPL` in the ticker box and press **Analyse**. The agent streams
+its planning trace, calls the four MCP tools, and writes the report from live Google
+News headlines and Yahoo Finance prices.
+
+No LLM key is set on the deployed instance, so the report is assembled by the
+deterministic template. Add `OPENAI_API_KEY` and the same graph writes it as prose
+instead — the tool calls and the numbers do not change.
+
+> The free Render instance sleeps after 15 minutes idle; the first request after a
+> quiet spell can take ~50 seconds while it wakes up.
 
 ---
 
