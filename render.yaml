@@ -5,15 +5,17 @@ services:
     plan: free
     region: frankfurt
     rootDir: backend
-    dockerfilePath: ./Dockerfile
     healthCheckPath: /health
     autoDeploy: true
     envVars:
+      # A public, read-only API: any origin may call it.
       - key: ALLOWED_ORIGINS
         value: "*"
-      - key: OPENAI_API_KEY
-        sync: false
       - key: MOVE_THRESHOLD
         value: "2.0"
       - key: DEFAULT_DAYS
         value: "30"
+      # Optional. Without a key the report uses the deterministic template, so the
+      # demo works out of the box; set OPENAI_API_KEY to get written prose instead.
+      # - key: OPENAI_API_KEY
+      #   sync: false
